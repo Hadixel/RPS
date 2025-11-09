@@ -12,18 +12,29 @@ function getComputerChoice() {
     }
 }
 
+
+
+
 function getHumanChoice() {
-    const userChoice = prompt("ENTER YOUR CHIOCE ! :");
-    return userChoice.toLocaleLowerCase();
+    const userChoice = prompt("ENTER YOUR CHIOCE ! :").toLowerCase();
+    
+    if (userChoice === "paper" || userChoice === "rock" || userChoice === "scissors") {
+        return userChoice;
+    }
+    else {
+        return "Not an Option";
+    }
 }
+
+
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
 
-    let humanScore = 0;
-    let computerScore = 0;
 
-    console.log(humanChoice);
-    console.log(computerChoice);
+    console.log("You : " + humanChoice);
+    console.log("Bot : " + computerChoice);
     if (humanChoice === "rock" && computerChoice === "paper") {
         console.log("You lose! Paper beats Rock");
         computerScore += 1;
@@ -45,6 +56,8 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+
+
 function playGame() {
     
     for (let i = 0; i <= 5; i++) {
@@ -53,8 +66,13 @@ function playGame() {
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
 
+
         console.log(`Your Current Score : ${humanScore} | The Opponent's Score : ${computerScore}`);
+        console.log('');
     }
+
+    console.log('');
+
     let lastHumanScore = `Your Score : ${humanScore}`
     let lastComputerScore = `Your Opponent's Score : ${computerScore}`
     console.log(lastHumanScore + " | " + lastComputerScore);
