@@ -13,14 +13,15 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    const userChoice = prompt("ENTER YOUR CHIOCE !");
+    const userChoice = prompt("ENTER YOUR CHIOCE ! :");
     return userChoice.toLocaleLowerCase();
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
+
+    let humanScore = 0;
+    let computerScore = 0;
+
     console.log(humanChoice);
     console.log(computerChoice);
     if (humanChoice === "rock" && computerChoice === "paper") {
@@ -45,12 +46,13 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-
+    
     for (let i = 0; i <= 5; i++) {
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
+
         console.log(`Your Current Score : ${humanScore} | The Opponent's Score : ${computerScore}`);
     }
     let lastHumanScore = `Your Score : ${humanScore}`
