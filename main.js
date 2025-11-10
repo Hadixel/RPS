@@ -12,13 +12,12 @@ function getComputerChoice() {
     }
 }
 
-let userChoice = getHumanChoice();;
+let userChoice = getHumanChoice();
 function getHumanChoice() {
 
     userChoice = prompt("ENTER YOUR CHIOCE ! :").toLowerCase();
     validation();
 }
-
 
 function validation() {
         if (userChoice === "paper" || userChoice === "rock" || userChoice === "scissors") {
@@ -29,12 +28,10 @@ function validation() {
         }
     }
 
-
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-
 
     console.log("You : " + humanChoice);
     console.log("Bot : " + computerChoice);
@@ -68,7 +65,6 @@ function playGame() {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-
 
         console.log(`Your Current Score : ${humanScore} | The Opponent's Score : ${computerScore}`);
         console.log('');
