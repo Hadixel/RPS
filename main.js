@@ -12,21 +12,19 @@ function getComputerChoice() {
     }
 }
 
-let userChoice = getHumanChoice();
 function getHumanChoice() {
-
-    userChoice = prompt("ENTER YOUR CHIOCE ! :").toLowerCase();
-    validation();
+    let userChoice = prompt("ENTER YOUR CHOICE! :").toLowerCase();
+    return validation(userChoice);
 }
 
-function validation() {
-        if (userChoice === "paper" || userChoice === "rock" || userChoice === "scissors") {
-            return userChoice;
-        }
-        else {
-            return "Not an Option";
-        }
+function validation(input) {
+    if (input === "paper" || input === "rock" || input === "scissors") {
+        return input;
+    } else {
+        console.log("Invalid choice! Please enter rock, paper, or scissors.");
+        return false;
     }
+}
 
 let humanScore = 0;
 let computerScore = 0;
