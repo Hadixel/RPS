@@ -12,19 +12,22 @@ function getComputerChoice() {
     }
 }
 
-
-
-
+let userChoice = getHumanChoice();;
 function getHumanChoice() {
-    const userChoice = prompt("ENTER YOUR CHIOCE ! :").toLowerCase();
-    
-    if (userChoice === "paper" || userChoice === "rock" || userChoice === "scissors") {
-        return userChoice;
-    }
-    else {
-        return "Not an Option";
-    }
+
+    userChoice = prompt("ENTER YOUR CHIOCE ! :").toLowerCase();
+    validation();
 }
+
+
+function validation() {
+        if (userChoice === "paper" || userChoice === "rock" || userChoice === "scissors") {
+            return userChoice;
+        }
+        else {
+            return "Not an Option";
+        }
+    }
 
 
 let humanScore = 0;
@@ -69,6 +72,10 @@ function playGame() {
 
         console.log(`Your Current Score : ${humanScore} | The Opponent's Score : ${computerScore}`);
         console.log('');
+
+        if (!validation()) {
+            i--
+        }
     }
 
     console.log('');
