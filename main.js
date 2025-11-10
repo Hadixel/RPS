@@ -13,15 +13,18 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let userChoice = prompt("ENTER YOUR CHOICE! :").toLowerCase();
+    const choice = prompt("ENTER YOUR CHOICE ! :");
+    if (choice === null) {
+        return null;
+    }
+    const userChoice = choice.toLowerCase().trim();
     return validation(userChoice);
 }
-
 function validation(input) {
     if (input === "paper" || input === "rock" || input === "scissors") {
         return input;
     } else {
-        console.log("Invalid choice! Please enter rock, paper, or scissors.");
+        console.log("Invalid choice! Please enter rock, paper, or scissors. \n");
         return false;
     }
 }
@@ -54,35 +57,41 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-
-
 function playGame() {
     
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 0; i < 5; i++) {
 
         const humanSelection = getHumanChoice();
+        if (humanSelection === null) {
+            console.log('Canceled by user. Exiting game.');
+            break;
+        }
+
+        if (!humanSelection) {
+            i--;
+            continue;
+        }
+
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
 
-        console.log(`Your Current Score : ${humanScore} | The Opponent's Score : ${computerScore}`);
+        console.log(`Your Current Score : ${humanScore} | Your Opponent's Current Score : ${computerScore}`);
         console.log('');
-
-        if (!validation()) {
-            i--
-        }
     }
 
     console.log('');
 
-    let lastHumanScore = `Your Score : ${humanScore}`
-    let lastComputerScore = `Your Opponent's Score : ${computerScore}`
+    let lastHumanScore = `Your Final Score : ${humanScore}`
+    let lastComputerScore = `Your Opponent's Final Score : ${computerScore}`
     console.log(lastHumanScore + " | " + lastComputerScore);
-    if (lastComputerScore > lastComputerScore) {
-        console.log("Mabye Next Time :(");
+    if (computerScore > humanScore) {
+        console.log("Maybe Next Time :(");
+    }
+    else if (computerScore === humanScore) {
+        console.log("It's a tie!");
     }
     else {
         console.log("Congrats! You Beat Your Opponent");
     }
 }
-
 playGame();
